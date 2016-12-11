@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="flashcardApp">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="/assets/styles/reset.css">
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <script src="/assets/angular/angular.js"></script>
+  <script src="/assets/app/app.js"></script>
+</head>
+
+<body ng-controller="FlashcardController">
+
+  <nav>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </nav>
+
+  <section class="card-display">
+    <div class="card-front">
+      {{cardBack}}
+    </div>
+    <div class="card-back">
+      {{cardFront}}
+    </div>
+  </section>
+  
+</body>
+</html>
