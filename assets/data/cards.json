@@ -1,0 +1,11 @@
+[{
+  "cardId" : "c001",
+  "cardFront" : "to swim",
+  "cardBack" : "nadar"
+},
+{
+"cardId" : "c002",
+  "cardFront" : "to run",
+  "cardBack" : "correr"
+}
+]

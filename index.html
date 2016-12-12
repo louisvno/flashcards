@@ -11,24 +11,18 @@
   <script src="/assets/app/app.js"></script>
 </head>
 
-<body ng-controller="FlashcardController">
+<body ng-controller="FlashcardController as flashcard">
 
   <nav>
     <ul>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>My Collections</li>
     </ul>
   </nav>
 
   <section class="card-display">
-    <div class="card-front">
-      {{cardBack}}
-    </div>
-    <div class="card-back">
-      {{cardFront}}
-    </div>
+    <h2>{{flashcard.cardContent}}</h2>
   </section>
+  <button ng-click="flashcard.flipCard()">flip card</button>
   
 </body>
 </html>
