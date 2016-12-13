@@ -18,35 +18,51 @@ function FlashcardController () {
       "cardBack" : "nadar"
     },
     {
-    "cardId" : "c002",
+      "cardId" : "c002",
       "cardFront" : "to run",
       "cardBack" : "correr"
     }];
     
-    this.initCardMode = "cardFront";
-    this.currentSide = this.initCardMode;
+    /* methods */
+  
+    this.selectCard = function (i) {
+      this.cardIndex = i;
+      return this.cards[i];
+    };
     
     this.setCurrentSide = function (cardSide) {
         this.currentSide = cardSide; 
     };
     
-    this.setCardContent = function (cardSide) {
+    this.setCardDisplay = function (cardSide) {
       this.setCurrentSide(cardSide);
-      return this.cards[0][cardSide];
+      this.cardDisplay = this.selectedCard[cardSide];
     };
-    
-    this.cardContent = this.setCardContent(this.initCardMode);
     
     this.flipCard = function(){
       if ( this.currentSide === "cardFront"){
-        this.cardContent = this.setCardContent ("cardBack");
-        console.log("f2b");
+        this.setCardDisplay("cardBack");
       } else if ( this.currentSide === "cardBack"){
-        this.cardContent = this.setCardContent ("cardFront");
+        this.setCardDisplay ("cardFront");
       }
     }
     
-    //TODO go to next card
+    this.nextCard = function(){
+     var nextIndex = this.cardIndex+1;
+     if(nextIndex < this.cards.length) { 
+       
+       this.selectedCard = this.selectCard(nextIndex);
+       this.setCardDisplay(this.initCardMode );
+     }
+    }
+    
+    /*init app */
+    this.initCardMode = "cardFront"; //NOTE could be made adjustable
+    this.currentSide = this.initCardMode;
+    this.cardIndex = 0;
+    this.selectedCard = this.selectCard(this.cardIndex);
+    this.setCardDisplay(this.initCardMode);
+    
 };
 
 //A Controller accepts two arguments, the first the Controller's name, to be referenced elsewhere such as the DOM, and the second a callback function. This callback shouldn't be treated as a callback, however, it's more a declaration of the Controller's body.
